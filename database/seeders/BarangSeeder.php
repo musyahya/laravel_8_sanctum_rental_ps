@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Barang;
 
 class BarangSeeder extends Seeder
 {
@@ -13,6 +14,14 @@ class BarangSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Barang::create([
+            'nama' => 'PS3',
+            'deskripsi' => 'HDD 500, 2 stik'
+        ]);
+
+        Barang::create([
+            'nama' => 'PS4',
+            'deskripsi' => 'HDD 500, 2 stik'
+        ]);
     }
 }
