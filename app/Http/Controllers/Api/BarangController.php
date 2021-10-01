@@ -16,4 +16,22 @@ class BarangController extends Controller
             'data' => $barang
         ], 200);
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required'
+        ]);
+
+        $barang = Barang::create([
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi
+        ]);
+
+        return response()->json([
+            'message' => 'Berhasil menambah barang',
+            'data' => $barang
+        ], 200);
+    }
 }
