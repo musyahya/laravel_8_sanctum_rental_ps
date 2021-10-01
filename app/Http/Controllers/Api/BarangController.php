@@ -34,4 +34,12 @@ class BarangController extends Controller
             'data' => $barang
         ], 200);
     }
+    
+    public function show(Barang $barang)
+    {
+        return response()->json([
+            'message' => 'Berhasil menampilkan barang',
+            'data' => $barang
+        ], 200);
+    }
 }
