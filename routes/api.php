@@ -27,6 +27,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('barang', [BarangController::class, 'store']); 
     Route::get('barang/{barang}', [BarangController::class, 'show']); 
     Route::put('barang/{barang}', [BarangController::class, 'update']); 
+    Route::delete('barang/{barang}', [BarangController::class, 'destory']); 
 });
 
 Route::post('register', [AuthController::class, 'register']); 

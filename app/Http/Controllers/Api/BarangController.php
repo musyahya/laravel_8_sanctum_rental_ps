@@ -60,4 +60,13 @@ class BarangController extends Controller
             'data' => $barang
         ], 200);
     }
+
+    public function destory(Barang $barang)
+    {
+        $barang->delete();
+
+        return response()->json([
+            'message' => 'Berhasil hapus barang',
+        ], 200);
+    }
 }
