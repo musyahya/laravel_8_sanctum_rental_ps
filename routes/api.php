@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BarangController;
+use App\Http\Controllers\Api\DetailBarangController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('barang/{barang}', [BarangController::class, 'show']); 
     Route::put('barang/{barang}', [BarangController::class, 'update']); 
     Route::delete('barang/{barang}', [BarangController::class, 'destory']); 
+
+    Route::get('detail_barang', [DetailBarangController::class, 'index']); 
 });
 
 Route::post('register', [AuthController::class, 'register']); 
