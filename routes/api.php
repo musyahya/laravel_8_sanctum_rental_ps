@@ -33,6 +33,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('detail_barang', [DetailBarangController::class, 'index']); 
     Route::post('detail_barang', [DetailBarangController::class, 'store']); 
     Route::get('detail_barang/{id}', [DetailBarangController::class, 'show']); 
+    Route::put('detail_barang/{detail_barang}', [DetailBarangController::class, 'update']); 
 });
 
 Route::post('register', [AuthController::class, 'register']); 
