@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Barang;
 use App\Models\DetailBarang;
+use Faker\Factory;
 
 class BarangSeeder extends Seeder
 {
@@ -15,9 +16,12 @@ class BarangSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Factory::create();
+        
         $barang = Barang::create([
             'nama' => 'PS3',
-            'deskripsi' => 'HDD 500, 2 stik'
+            'deskripsi' => 'HDD 500, 2 stik',
+            'gambar' => 'barang/' .$faker->image('public/storage/barang', 640, 480, 'animals', false)
         ]);
 
         DetailBarang::create([
@@ -34,7 +38,8 @@ class BarangSeeder extends Seeder
 
         $barang = Barang::create([
             'nama' => 'PS4',
-            'deskripsi' => 'HDD 500, 2 stik'
+            'deskripsi' => 'HDD 500, 2 stik',
+            'gambar' => 'barang/' .$faker->image('public/storage/barang', 640, 480, 'animals', false)
         ]);
 
         DetailBarang::create([
