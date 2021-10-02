@@ -42,4 +42,14 @@ class DetailBarangController extends Controller
             'data' => $detail_barang
         ], 200);
     }
+
+    public function show($id)
+    {
+        $detail_barang = DetailBarang::with('barang')->whereId($id)->first();
+
+        return response()->json([
+            'message' => 'Berhasil menampilkan detail barang',
+            'data' => $detail_barang
+        ], 200);
+    }
 }
