@@ -15,7 +15,7 @@ class CreateDetailBarangsTable extends Migration
     {
         Schema::create('detail_barang', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('barang_id');
+            $table->foreignId('barang_id')->constrained('barang')->onDelete('cascade');
             $table->integer('harga');
             $table->integer('durasi');
             $table->timestamps();
