@@ -75,4 +75,13 @@ class DetailBarangController extends Controller
             'data' => $detail_barang
         ], 200);
     }
+
+    public function destory(DetailBarang $detail_barang)
+    {
+        $detail_barang->delete();
+
+        return response()->json([
+            'message' => 'Berhasil menghapus detail barang',
+        ], 200);
+    }
 }
