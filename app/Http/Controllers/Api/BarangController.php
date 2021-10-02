@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Barang;
+use Illuminate\Support\Facades\Storage;
 
 class BarangController extends Controller
 {
@@ -54,9 +55,17 @@ class BarangController extends Controller
             'deskripsi' => 'required'
         ]);
 
+        if ($request->gambar) {
+            Storage::delete('/public/' .$barang->gambar);
+            $gambar = $request->file('gambar')->store('barang', 'public');
+        }else {
+            $gambar = $barang->gambar;
+        }
+
         $barang->update([
             'nama' => $request->nama,
-            'deskripsi' => $request->deskripsi
+            'deskripsi' => $request->deskripsi,
+            'gambar' => $gambar
         ]);
 
         return response()->json([
