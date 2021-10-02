@@ -21,12 +21,16 @@ class BarangController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'gambar' => 'required|image|max:1024'
         ]);
+
+        $gambar = $request->file('gambar')->store('barang', 'public');
 
         $barang = Barang::create([
             'nama' => $request->nama,
-            'deskripsi' => $request->deskripsi
+            'deskripsi' => $request->deskripsi,
+            'gambar' => $gambar
         ]);
 
         return response()->json([
