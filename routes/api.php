@@ -21,9 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['auth:sanctum'])->group(function () {
-    Route::post('logout', [AuthController::class, 'logout']); 
-
+Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('barang', [BarangController::class, 'index']); 
     Route::post('barang', [BarangController::class, 'store']); 
     Route::get('barang/{barang}', [BarangController::class, 'show']); 
@@ -35,6 +33,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('detail_barang/{id}', [DetailBarangController::class, 'show']); 
     Route::put('detail_barang/{detail_barang}', [DetailBarangController::class, 'update']); 
     Route::delete('detail_barang/{detail_barang}', [DetailBarangController::class, 'destory']); 
+});
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('logout', [AuthController::class, 'logout']);
 });
 
 Route::post('register', [AuthController::class, 'register']); 
