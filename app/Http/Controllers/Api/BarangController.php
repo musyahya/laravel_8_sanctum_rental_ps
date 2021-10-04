@@ -76,6 +76,7 @@ class BarangController extends Controller
 
     public function destory(Barang $barang)
     {
+        Storage::delete('/public/' . $barang->gambar);
         $barang->delete();
 
         return response()->json([
