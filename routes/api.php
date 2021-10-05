@@ -29,7 +29,6 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::put('barang/{barang}', [BarangController::class, 'update']); 
     Route::delete('barang/{barang}', [BarangController::class, 'destory']); 
 
-    Route::get('detail_barang', [DetailBarangController::class, 'index']); 
     Route::post('detail_barang', [DetailBarangController::class, 'store']); 
     Route::get('detail_barang/{id}', [DetailBarangController::class, 'show']); 
     Route::put('detail_barang/{detail_barang}', [DetailBarangController::class, 'update']); 
@@ -42,6 +41,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });
 
+Route::get('detail_barang', [DetailBarangController::class, 'index']); 
 Route::get('rental', [RentalController::class, 'index']); 
 
 Route::post('register', [AuthController::class, 'register']); 
