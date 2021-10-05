@@ -16,4 +16,27 @@ class RentalController extends Controller
             'data' => $rental
         ], 200);
     }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required|email',
+            'alamat' => 'required',
+            'hp' => 'required|numeric'
+        ]);
+
+        $rental = Rental::find(1);
+        $rental->update([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'email' => $request->email,
+            'hp' => $request->hp
+        ]);
+
+        return response()->json([
+            'message' => 'Berhasil melakukan update rental',
+            'data' => $rental
+        ], 200);
+    }
 }

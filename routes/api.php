@@ -41,5 +41,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 Route::get('rental', [RentalController::class, 'index']); 
+Route::put('rental', [RentalController::class, 'update']); 
+
 Route::post('register', [AuthController::class, 'register']); 
 Route::post('login', [AuthController::class, 'login']); 
