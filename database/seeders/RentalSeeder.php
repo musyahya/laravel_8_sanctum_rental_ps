@@ -17,7 +17,8 @@ class RentalSeeder extends Seeder
         Rental::create([
             'nama' => 'laravel rental ps',
             'alamat' => 'jl. pemuda',
-            'hp' => '0852123456789'
+            'hp' => '0852123456789',
+            'email' => 'rental_ps@gmail.com'
         ]);
     }
 }

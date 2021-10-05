@@ -17,6 +17,7 @@ class CreateRentalsTable extends Migration
             $table->id();
             $table->string('nama');
             $table->text('alamat');
+            $table->string('email');
             $table->string('hp');
             $table->timestamps();
         });

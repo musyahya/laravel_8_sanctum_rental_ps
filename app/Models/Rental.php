@@ -9,5 +9,5 @@ class Rental extends Model
 {
     use HasFactory;
     protected $table = 'rental';
-    protected $fillable = ['nama', 'alamat', 'hp'];
+    protected $fillable = ['nama', 'alamat', 'hp', 'email'];
 }

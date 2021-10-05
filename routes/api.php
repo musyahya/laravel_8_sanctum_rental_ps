@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BarangController;
 use App\Http\Controllers\Api\DetailBarangController;
+use App\Http\Controllers\Api\RentalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,5 +40,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });
 
+Route::get('rental', [RentalController::class, 'index']); 
 Route::post('register', [AuthController::class, 'register']); 
 Route::post('login', [AuthController::class, 'login']); 
