@@ -12,7 +12,7 @@ class SewaController extends Controller
 {
     public function index()
     {
-        $sewa = Sewa::with('user', 'detail_barang.barang')->get();
+        $sewa = Sewa::with('user', 'detail_barang.barang')->latest()->get();
         return response()->json([
             'message' => 'Berhasil menampilkan sewa',
             'data' => $sewa
