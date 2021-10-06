@@ -62,4 +62,23 @@ class SewaController extends Controller
             'data' => $sewa
         ], 200);
     }
+
+    public function update($id)
+    {
+        $sewa = Sewa::whereId($id)->where('status', 1)->first();
+        $denda = Carbon::create($sewa->tanggal_dikembalikan)->diffInDays(now()) * $sewa->detail_barang->harga;
+        
+        $sewa->update([
+            'status' => 2,
+            'denda' => $denda,
+            'total_bayar' => $sewa->detail_barang->harga + $denda
+        ]);
+
+        return response()->json([
+            'message' => 'Berhasil menyelesaikan sewa',
+            'data' => $sewa
+        ],
+            200
+        );
+    }
 }

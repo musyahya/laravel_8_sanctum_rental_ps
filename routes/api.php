@@ -38,6 +38,7 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::put('rental', [RentalController::class, 'update']); 
 
     Route::get('sewa', [SewaController::class, 'index']);
+    Route::put('sewa/{id}', [SewaController::class, 'update']);
 });
 
 Route::middleware(['auth:sanctum', 'user'])->group(function () {
