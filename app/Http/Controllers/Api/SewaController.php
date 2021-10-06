@@ -19,6 +19,15 @@ class SewaController extends Controller
         ], 200);
     }
 
+    public function sewa_user()
+    {
+        $sewa = Sewa::with('user', 'detail_barang.barang')->where('user_id', auth()->id())->latest()->get();
+        return response()->json([
+            'message' => 'Berhasil menampilkan sewa',
+            'data' => $sewa
+        ], 200);
+    }
+
     public function store(Request $request)
     {
         $detail_barang = DetailBarang::get();
