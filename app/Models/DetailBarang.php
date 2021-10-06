@@ -17,4 +17,9 @@ class DetailBarang extends Model
     {
         return $this->belongsTo(Barang::class);
     }
+
+    public function sewa()
+    {
+        return $this->hasMany(Sewa::class);
+    }
 }
