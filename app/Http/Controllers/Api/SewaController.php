@@ -81,4 +81,28 @@ class SewaController extends Controller
             200
         );
     }
+
+    public function count_selesai()
+    {
+        $sewa = Sewa::where('status', 2)->count();
+        return response()->json(
+            [
+                'message' => 'Berhasil menampilkan sewa',
+                'data' => $sewa
+            ],
+            200
+        );
+    }
+
+    public function count_belum_selesai()
+    {
+        $sewa = Sewa::where('status', 1)->count();
+        return response()->json(
+            [
+                'message' => 'Berhasil menampilkan sewa',
+                'data' => $sewa
+            ],
+            200
+        );
+    }
 }
