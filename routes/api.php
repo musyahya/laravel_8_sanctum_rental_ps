@@ -40,6 +40,10 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('sewa', [SewaController::class, 'index']);
 });
 
+Route::middleware(['auth:sanctum', 'user'])->group(function () {
+    Route::post('sewa', [SewaController::class, 'store']);
+});
+
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });
