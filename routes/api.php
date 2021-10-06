@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BarangController;
 use App\Http\Controllers\Api\DetailBarangController;
 use App\Http\Controllers\Api\RentalController;
+use App\Http\Controllers\Api\SewaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,8 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::delete('detail_barang/{detail_barang}', [DetailBarangController::class, 'destory']);
 
     Route::put('rental', [RentalController::class, 'update']); 
+
+    Route::get('sewa', [SewaController::class, 'index']);
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {
