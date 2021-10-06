@@ -27,7 +27,7 @@ class BarangSeeder extends Seeder
         DetailBarang::create([
             'barang_id' => $barang->id,
             'harga' => 60000,
-            'durasi' => 1
+            'durasi' => 1,
         ]);
 
         DetailBarang::create([
