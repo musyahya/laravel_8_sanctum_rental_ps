@@ -7,6 +7,10 @@ Laravel 8 Sanctum Rental PS dibaut oleh :
 - Github : <a href="https://github.com/musyahya/laravel_8_sanctum_rental_ps"> Musyahya </a>
 - Youtube : <a href="https://www.youtube.com/channel/UC1iCvpMssrHnUsWKEe2cOag"> Musyahya </a>
 
+## Project Terkait
+
+- React : <a href="https://github.com/musyahya/react_rental_ps"> Frontend Rental PS </a>
+
 ## User
 
 **Admin**
