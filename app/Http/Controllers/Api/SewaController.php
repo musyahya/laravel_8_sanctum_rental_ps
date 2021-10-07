@@ -7,6 +7,7 @@ use App\Models\DetailBarang;
 use App\Models\Sewa;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SewaController extends Controller
 {
@@ -101,6 +102,36 @@ class SewaController extends Controller
             [
                 'message' => 'Berhasil menampilkan sewa',
                 'data' => $sewa
+            ],
+            200
+        );
+    }
+
+    public function sewa_chart()
+    {
+        $sewa = Sewa::select(DB::raw('count(tanggal_dikembalikan) as value'), DB::raw('DATE_FORMAT(tanggal_dikembalikan, "%d") as date'))
+            ->whereMonth('tanggal_dikembalikan', now()->month)
+            ->whereYear('tanggal_dikembalikan', now()->year)
+            ->where('status', 2)
+            ->groupBy('date')
+            ->get();
+
+        $sewa_baru = [];
+        for ($a=0; $a < now()->day; $a++) { 
+            for ($b=0; $b < count($sewa); $b++) { 
+                if ($a+1 == $sewa[$b]->date) {
+                    $sewa_baru[$a+1] = $sewa[$b]->value;
+                    break;
+                } else {
+                    $sewa_baru[$a+1] = 0;
+                }
+            }
+        }
+
+        return response()->json(
+            [
+                'message' => 'Berhasil menampilkan sewa',
+                'data' => $sewa_baru
             ],
             200
         );

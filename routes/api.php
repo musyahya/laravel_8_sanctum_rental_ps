@@ -41,6 +41,7 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::put('sewa/{id}', [SewaController::class, 'update']);
     Route::get('selesai_sewa', [SewaController::class, 'count_selesai']);
     Route::get('belum_selesai_sewa', [SewaController::class, 'count_belum_selesai']);
+    Route::get('sewa_chart', [SewaController::class, 'sewa_chart']);
 });
 
 Route::middleware(['auth:sanctum', 'user'])->group(function () {
